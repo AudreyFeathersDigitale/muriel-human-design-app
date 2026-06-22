@@ -13,156 +13,185 @@ import {
   Mic,
   Sparkles,
   Target,
-  Waves,
   Zap,
 } from "lucide-react";
 
-const questions = [
+type ArchetypeKey = "guardian" | "seeker" | "survivor" | "alchemist";
+
+type Answer = {
+  key: ArchetypeKey;
+  icon: string;
+  text: string;
+};
+
+type Question = {
+  id: number;
+  theme: string;
+  icon: React.ElementType;
+  question: string;
+  answers: Answer[];
+};
+
+const questions: Question[] = [
   {
     id: 1,
-    theme: "Relations",
-    icon: Waves,
-    question: "Quand une tension apparaît avec quelqu’un…",
+    theme: "Décision",
+    icon: Target,
+    question: "Lorsque tu dois prendre une décision importante :",
     answers: [
-      { key: "fire", icon: "🔥", text: "Je réagis vite, trop fort, et je regrette après." },
-      { key: "water", icon: "💧", text: "Je prends sur moi, je ravale, mais ça me submerge." },
-      { key: "air", icon: "〰️", text: "Je n’arrive pas à dire clairement ce que je ressens." },
-      { key: "earth", icon: "🌱", text: "Je prends un temps de recul et j’exprime calmement ce que je ressens." },
+      { key: "guardian", icon: "🛡️", text: "J'analyse longtemps avant de me lancer." },
+      { key: "seeker", icon: "🧭", text: "Je demande souvent l'avis des autres." },
+      { key: "survivor", icon: "🌊", text: "Je reporte la décision en espérant y voir plus clair." },
+      { key: "alchemist", icon: "✨", text: "J'écoute mon ressenti avant d'agir." },
     ],
   },
   {
     id: 2,
-    theme: "Limites",
-    icon: Heart,
-    question: "Dire non pour moi…",
+    theme: "Énergie",
+    icon: Zap,
+    question: "Aujourd'hui, ce qui te fatigue le plus est :",
     answers: [
-      { key: "fire", icon: "🔥", text: "Je le dis brusquement quand c’est trop tard." },
-      { key: "water", icon: "💧", text: "Je ne le dis presque jamais, je culpabilise." },
-      { key: "air", icon: "〰️", text: "Je tourne autour du pot sans être clair(e)." },
-      { key: "earth", icon: "🌱", text: "Je dis non avec respect quand je sens que c’est correct pour moi." },
+      { key: "guardian", icon: "🛡️", text: "Vouloir tout contrôler." },
+      { key: "seeker", icon: "🧭", text: "Ne pas savoir quelle direction prendre." },
+      { key: "survivor", icon: "🌊", text: "Gérer les problèmes au fur et à mesure." },
+      { key: "alchemist", icon: "✨", text: "Sentir que je pourrais aller plus loin." },
     ],
   },
   {
     id: 3,
-    theme: "Relations",
-    icon: Heart,
-    question: "Quand je dois prendre une décision importante dans une relation…",
+    theme: "Projet",
+    icon: Briefcase,
+    question: "Quand un projet te tient à cœur :",
     answers: [
-      { key: "fire", icon: "🔥", text: "Je décide sous l’émotion." },
-      { key: "water", icon: "💧", text: "Je demande l’avis de tout le monde avant." },
-      { key: "air", icon: "〰️", text: "Je doute tellement que je n’arrive pas à trancher." },
-      { key: "earth", icon: "🌱", text: "Je prends le temps de sentir ce qui est mieux pour moi." },
+      { key: "guardian", icon: "🛡️", text: "Je prépare tout dans les moindres détails." },
+      { key: "seeker", icon: "🧭", text: "Je commence puis je doute rapidement." },
+      { key: "survivor", icon: "🌊", text: "J'ai du mal à passer à l'action." },
+      { key: "alchemist", icon: "✨", text: "J'avance même sans tout maîtriser." },
     ],
   },
   {
     id: 4,
-    theme: "Relations",
-    icon: Waves,
-    question: "Ce qui me fait le plus souffrir dans mes relations…",
+    theme: "État d'esprit",
+    icon: Heart,
+    question: "La phrase qui te ressemble le plus :",
     answers: [
-      { key: "fire", icon: "🔥", text: "Les conflits qui explosent." },
-      { key: "water", icon: "💧", text: "Me sentir submergé(e) et incompris(e)." },
-      { key: "air", icon: "〰️", text: "Ne pas réussir à communiquer sereinement." },
-      { key: "earth", icon: "🌱", text: "Quand je m’oublie, je sais que je dois revenir à moi." },
+      { key: "guardian", icon: "🛡️", text: "Je dois être certain(e) avant d'agir." },
+      { key: "seeker", icon: "🧭", text: "Je cherche encore ma voie." },
+      { key: "survivor", icon: "🌊", text: "J'ai l'impression de subir ma situation." },
+      { key: "alchemist", icon: "✨", text: "Je sens que quelque chose de plus grand m'appelle." },
     ],
   },
   {
     id: 5,
-    theme: "Business",
+    theme: "Finance",
     icon: Briefcase,
-    question: "Dans mon business, je me sens…",
+    question: "Aujourd'hui, par rapport à ta situation financière :",
     answers: [
-      { key: "fire", icon: "🔥", text: "Toujours dans l’urgence, je fais tout trop vite." },
-      { key: "water", icon: "💧", text: "Submergé(e) par trop de tâches." },
-      { key: "air", icon: "〰️", text: "Perdu(e), je doute de la direction." },
-      { key: "earth", icon: "🌱", text: "Globalement aligné(e), je sais prioriser ce qui est important." },
+      {
+        key: "guardian",
+        icon: "🛡️",
+        text: "Même lorsque les choses vont bien, j'ai du mal à me sentir totalement en sécurité.",
+      },
+      {
+        key: "seeker",
+        icon: "🧭",
+        text: "Je sais que je suis capable de gagner davantage mais je ne sais pas toujours quelle direction prendre.",
+      },
+      {
+        key: "survivor",
+        icon: "🌊",
+        text: "J'ai l'impression de faire beaucoup d'efforts sans obtenir les résultats que j'espère.",
+      },
+      {
+        key: "alchemist",
+        icon: "✨",
+        text: "J'ai déjà créé des résultats encourageants et je sens que je peux encore développer mon potentiel.",
+      },
     ],
   },
   {
     id: 6,
-    theme: "Décision",
+    theme: "Organisation",
     icon: Target,
-    question: "Quand je dois prendre une décision stratégique…",
+    question: "Quand tu ouvres ton agenda ou ton ordinateur le matin :",
     answers: [
-      { key: "fire", icon: "🔥", text: "Je fonce puis je corrige après." },
-      { key: "water", icon: "💧", text: "J’attends trop longtemps par peur." },
-      { key: "air", icon: "〰️", text: "Je réfléchis tellement que je n’agis pas." },
-      { key: "earth", icon: "🌱", text: "Je prends un temps de recul pour décider avec clarté." },
+      { key: "guardian", icon: "🛡️", text: "Je commence immédiatement à gérer ma liste de tâches." },
+      { key: "seeker", icon: "🧭", text: "Je ne sais pas toujours quelle est la priorité." },
+      { key: "survivor", icon: "🌊", text: "J'ai l'impression de courir après le temps toute la journée." },
+      { key: "alchemist", icon: "✨", text: "Je sais ce qui est vraiment important aujourd'hui." },
     ],
   },
   {
     id: 7,
-    theme: "Communication",
-    icon: Mic,
-    question: "Ma communication pour attirer des clients ressemble à…",
+    theme: "Productivité",
+    icon: Briefcase,
+    question: "Quand tu travailles sur un projet important :",
     answers: [
-      { key: "fire", icon: "🔥", text: "Je poste partout, je parle fort de mes offres… je sens que je force." },
-      { key: "water", icon: "💧", text: "Je communique surtout quand je panique de manquer de clients." },
-      { key: "air", icon: "〰️", text: "Je me retiens, je n’ose pas prendre ma place." },
-      { key: "earth", icon: "🌱", text: "Je communique avec simplicité, depuis qui je suis." },
+      { key: "guardian", icon: "🛡️", text: "Je passe beaucoup de temps à perfectionner les détails." },
+      { key: "seeker", icon: "🧭", text: "Je commence une tâche puis une autre, puis encore une autre sans toujours terminer." },
+      { key: "survivor", icon: "🌊", text: "Je me sens vite dépassé(e) par tout ce qu'il y a à faire." },
+      { key: "alchemist", icon: "✨", text: "Je reste concentré(e) sur une priorité à la fois." },
     ],
   },
   {
     id: 8,
-    theme: "Énergie",
-    icon: Zap,
-    question: "Mon niveau d’énergie aujourd’hui…",
+    theme: "Évolution",
+    icon: Heart,
+    question: "Si tu pouvais changer une seule chose dès maintenant :",
     answers: [
-      { key: "fire", icon: "🔥", text: "Sous tension permanente." },
-      { key: "water", icon: "💧", text: "Épuisé(e) émotionnellement." },
-      { key: "air", icon: "〰️", text: "Vidé(e) par le doute et la confusion." },
-      { key: "earth", icon: "🌱", text: "Stable, je respecte mon énergie et mon rythme." },
+      { key: "guardian", icon: "🛡️", text: "Arrêter de tout contrôler." },
+      { key: "seeker", icon: "🧭", text: "Avoir enfin une vision claire." },
+      { key: "survivor", icon: "🌊", text: "Retrouver de l'énergie et de l'élan." },
+      { key: "alchemist", icon: "✨", text: "Oser prendre pleinement ma place." },
     ],
   },
 ];
 
-const results = {
-  fire: {
-    label: "Feu émotionnel",
-    emoji: "🔥",
-    text: "Tu vis dans la réaction et l’intensité. Tu as beaucoup d’énergie, mais aujourd’hui cette énergie part dans tous les sens.",
-    relation: "Tu réagis vite, parfois trop fort. Tu dis des choses que tu regrettes ensuite. Les conflits prennent beaucoup de place.",
-    business: "Tu fonces, tu fais, tu forces. Tu es souvent dans l’urgence et tu t’épuises à vouloir que tout avance vite.",
-    energy: "Ton problème n’est pas le manque d’énergie. Ton problème, c’est ne pas savoir comment la canaliser.",
-    next: "Ralentis avant d’agir. Reviens à ton corps, respire, puis choisis une action claire plutôt qu’une réaction immédiate.",
+const results: Record<ArchetypeKey, {
+  label: string;
+  emoji: string;
+  text: string;
+  challenge: string;
+}> = {
+  guardian: {
+    label: "Le Gardien du Contrôle",
+    emoji: "🛡️",
+    text: "Tu cherches à te protéger en anticipant, maîtrisant et sécurisant un maximum de choses.",
+    challenge: "Faire davantage confiance à toi-même et à la vie.",
   },
-  water: {
-    label: "Eau émotionnelle",
-    emoji: "💧",
-    text: "Tu es submergé(e) par tes émotions. Tu ressens tout profondément, fortement, et souvent trop pour toi.",
-    relation: "Tu prends sur toi pour éviter les conflits. Tu culpabilises facilement, tu t’oublies pour préserver l’autre et tu as du mal à poser tes limites.",
-    business: "Tu agis depuis le doute ou la peur. Tu communiques depuis le manque, tu te compares beaucoup et tu te sens vite dépassé(e).",
-    energy: "Ton problème n’est pas ta sensibilité. Ton problème, c’est ne pas savoir comment te protéger émotionnellement.",
-    next: "Commence par reconnaître ce qui t’appartient vraiment. Tu n’as pas besoin d’absorber toutes les émotions autour de toi.",
+  seeker: {
+    label: "Le Chercheur de Réponses",
+    emoji: "🧭",
+    text: "Tu es en quête de sens, de direction et de compréhension, mais tu cherches parfois les réponses à l'extérieur plutôt qu'à l'intérieur.",
+    challenge: "Retrouver ta propre boussole intérieure.",
   },
-  air: {
-    label: "Air mental",
-    emoji: "〰️",
-    text: "Tu es bloqué(e) dans le mental. Tu réfléchis beaucoup, tout le temps, et ça t’empêche d’avancer sereinement.",
-    relation: "Tu n’arrives pas à dire clairement ce que tu ressens. Tu tournes tes phrases dans ta tête avant de parler, tu doutes de ta légitimité à t’exprimer et tu te sens souvent incompris(e).",
-    business: "Tu hésites longtemps avant d’agir. Tu changes souvent de direction, tu manques de clarté et tu perds confiance dans tes décisions.",
-    energy: "Ton problème n’est pas ton intelligence. Ton problème, c’est être déconnecté(e) de ton ressenti.",
-    next: "Reviens à ton ressenti avant de chercher la réponse parfaite. Demande-toi simplement : qu’est-ce que je sens vraiment maintenant ?",
+  survivor: {
+    label: "Le Survivant Émotionnel",
+    emoji: "🌊",
+    text: "Tu avances souvent en gérant les urgences et les imprévus plutôt qu'en construisant ce qui compte vraiment pour toi.",
+    challenge: "Sortir du mode survie et reprendre ton pouvoir d'action.",
   },
-  earth: {
-    label: "Terre alignée",
-    emoji: "🌱",
-    text: "Tu es déjà en partie aligné(e). Tu as de bons réflexes et tu arrives parfois à communiquer calmement et à prendre des décisions alignées.",
-    relation: "Tu sais que le problème revient quand tu t’oublies. Tu sens que tu pourrais aller encore plus loin dans la sérénité.",
-    business: "Tu sais que tu as du potentiel, mais tu manques peut-être de clarté sur ton mode de fonctionnement naturel.",
-    energy: "Ton problème n’est pas le désalignement. Ton problème, c’est ne pas connaître ton mode d’emploi précis.",
-    next: "Ton Human Design peut t’aider à comprendre ton fonctionnement naturel et à appliquer concrètement tes bons réflexes.",
+  alchemist: {
+    label: "L'Alchimiste Aligné",
+    emoji: "✨",
+    text: "Tu as déjà commencé à te reconnecter à toi-même et à ton potentiel. Tu sens qu'il est temps d'incarner davantage qui tu es réellement.",
+    challenge: "Passer au niveau supérieur et révéler pleinement ta Zone de Génie.",
   },
 };
 
-function scoreAnswers(answers: string[]) {
-  const score: Record<string, number> = { fire: 0, water: 0, air: 0, earth: 0 };
+function scoreAnswers(answers: ArchetypeKey[]): ArchetypeKey {
+  const score: Record<ArchetypeKey, number> = {
+    guardian: 0,
+    seeker: 0,
+    survivor: 0,
+    alchemist: 0,
+  };
 
   answers.forEach((answer) => {
     score[answer] += 1;
   });
 
-  return Object.entries(score).sort((a, b) => b[1] - a[1])[0][0];
+  return Object.entries(score).sort((a, b) => b[1] - a[1])[0][0] as ArchetypeKey;
 }
 
 function Orb({ size = "h-36 w-36" }) {
@@ -210,8 +239,8 @@ function Landing({ onStart }: { onStart: () => void }) {
         <div className="mt-12 grid grid-cols-[1fr_auto] items-center gap-4">
           <div>
             <h1 className="font-serif text-[44px] leading-[1.05] tracking-tight">
-              Découvre ton fonctionnement{" "}
-              <span className="text-[#B87C00]">émotionnel et énergétique</span>
+              Découvre ton profil intérieur{" "}
+              <span className="text-[#B87C00]">et ta Zone de Génie</span>
             </h1>
             <div className="mt-5 h-1.5 w-28 rounded-full bg-[#9EDFE3]" />
           </div>
@@ -219,14 +248,14 @@ function Landing({ onStart }: { onStart: () => void }) {
         </div>
 
         <p className="mt-8 text-lg leading-7 text-[#28364C]">
-          Une expérience guidée par l’IA pour mieux comprendre tes réactions, ton énergie et tes décisions.
+          Une expérience guidée pour mieux comprendre ce qui te freine aujourd'hui et ce qui peut t'aider à avancer avec plus de clarté.
         </p>
 
         <div className="mt-10 space-y-7">
           {[
-            [Heart, "Mieux te comprendre", "Identifie tes schémas émotionnels et relationnels."],
-            [Sparkles, "Des clés concrètes", "Reçois des conseils personnalisés pour tes relations et ton business."],
-            [Leaf, "Alignement et clarté", "Avance avec plus de confiance et d’énergie au quotidien."],
+            [Heart, "Mieux te comprendre", "Identifie ton archétype dominant actuel."],
+            [Sparkles, "Des clés concrètes", "Découvre ton défi principal et ce que ton profil révèle."],
+            [Leaf, "Alignement et clarté", "Avance avec plus de confiance, d'énergie et de justesse."],
           ].map(([Icon, title, text]: any) => (
             <div key={title} className="flex gap-5">
               <div className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-[#9EDFE3]/70 shadow-lg shadow-[#9EDFE3]/30">
@@ -256,7 +285,7 @@ function Landing({ onStart }: { onStart: () => void }) {
             <div className="font-serif text-5xl text-[#D5A021]">“</div>
             <div>
               <p className="leading-6">
-                Cette expérience m’a permis de comprendre beaucoup de choses sur moi. Un vrai déclic !
+                Cette expérience m'a permis de comprendre beaucoup de choses sur moi. Un vrai déclic !
               </p>
               <p className="mt-3 text-sm font-medium">— Claire, entrepreneure</p>
             </div>
@@ -272,15 +301,15 @@ function ChatQuiz({
   setAnswers,
   onComplete,
 }: {
-  answers: string[];
-  setAnswers: React.Dispatch<React.SetStateAction<string[]>>;
+  answers: ArchetypeKey[];
+  setAnswers: React.Dispatch<React.SetStateAction<ArchetypeKey[]>>;
   onComplete: () => void;
 }) {
   const [hasStarted, setHasStarted] = useState(false);
   const current = questions[answers.length];
   const progress = Math.round((answers.length / questions.length) * 100);
 
-  function choose(key: string) {
+  function choose(key: ArchetypeKey) {
     const next = [...answers, key];
     setAnswers(next);
     if (next.length === questions.length) setTimeout(onComplete, 450);
@@ -294,7 +323,7 @@ function ChatQuiz({
             <button className="grid h-11 w-11 place-items-center rounded-full bg-white shadow-sm">‹</button>
             <div className="text-center">
               <div className="font-serif text-2xl">Ton guide IA</div>
-              <div className="text-sm font-medium text-[#B87C00]">Coach émotionnel & énergétique</div>
+              <div className="text-sm font-medium text-[#B87C00]">Clarté & alignement</div>
             </div>
             <button className="grid h-11 w-11 place-items-center rounded-full bg-white shadow-sm">
               <Mic className="h-5 w-5" />
@@ -312,8 +341,7 @@ function ChatQuiz({
               transition={{ duration: 0.45 }}
               className="rounded-[1.7rem] border border-[#E5D9C5] bg-white/75 p-6 text-[17px] leading-8 shadow-sm"
             >
-              Je suis là pour t’aider à mieux comprendre ton fonctionnement et t’apporter plus de clarté dans
-              tes relations et ton business.
+              Je suis là pour t'aider à identifier ton archétype dominant actuel et ce qui peut t'aider à avancer avec plus de clarté.
               <br />
               <br />
               Prête à commencer ton analyse ? ✨
@@ -332,7 +360,7 @@ function ChatQuiz({
           <div className="mt-auto rounded-[2rem] border border-[#E5D9C5] bg-white/55 p-5 text-center shadow-sm">
             <p className="font-serif text-2xl text-[#B87C00]">8 questions</p>
             <p className="mt-2 text-sm leading-6 text-[#3F4B5E]">
-              Réponds spontanément. Il n’y a pas de bonne ou de mauvaise réponse.
+              Réponds spontanément. Il n'y a pas de bonne ou de mauvaise réponse.
             </p>
           </div>
 
@@ -491,20 +519,20 @@ function LeadCapture({
           </div>
 
           <h1 className="mt-8 font-serif text-4xl leading-tight text-[#142033]">
-            Reçois ton mini-guide Human Design
+            Reçois ton mini-guide personnalisé
           </h1>
 
           <p className="mt-5 text-base leading-7 text-[#3F4B5E]">
-            Découvre ton fonctionnement naturel, ta façon de décider et les clés pour retrouver plus de clarté dans tes relations et ton business.
+            Découvre ton archétype dominant, ton défi principal et les clés pour retrouver plus de clarté, d'élan et d'alignement.
           </p>
         </div>
 
         <div className="mt-8 rounded-[2rem] border border-[#E5D9C5] bg-white/60 p-5 shadow-sm">
           <div className="space-y-3 text-sm leading-6 text-[#3F4B5E]">
-            <p>✓ Ton type énergétique dominant</p>
-            <p>✓ Ta façon naturelle de décider</p>
-            <p>✓ Pourquoi tu t’épuises émotionnellement</p>
-            <p>✓ Comment retrouver plus d’alignement</p>
+            <p>✓ Ton archétype dominant actuel</p>
+            <p>✓ Ce que ton profil révèle</p>
+            <p>✓ Ton défi principal</p>
+            <p>✓ Une piste concrète pour passer au niveau supérieur</p>
           </div>
         </div>
 
@@ -541,48 +569,30 @@ function LeadCapture({
   );
 }
 
-function Result({ resultKey, onRestart }: { resultKey: string; onRestart: () => void }) {
-  const result = results[resultKey as keyof typeof results];
+function Result({ resultKey, onRestart }: { resultKey: ArchetypeKey; onRestart: () => void }) {
+  const result = results[resultKey];
 
-  const pdfLinks: Record<string, string> = {
-    fire: "/pdfs/feu.pdf",
-    water: "/pdfs/eau.pdf",
-    air: "/pdfs/air.pdf",
-    earth: "/pdfs/terre.pdf",
+  const pdfLinks: Record<ArchetypeKey, string> = {
+    guardian: "/pdfs/gardien-controle.pdf",
+    seeker: "/pdfs/chercheur-reponses.pdf",
+    survivor: "/pdfs/survivant-emotionnel.pdf",
+    alchemist: "/pdfs/alchimiste-aligne.pdf",
   };
 
   const cards = [
     [
-      Heart,
-      "Relations",
-      result.relation,
-      "bg-[#E8F9FA]",
-      "text-[#13858B]",
-      "bg-[#D5A021]/10",
-      "text-[#D5A021]",
-    ],
-    [
-      Briefcase,
-      "Business",
-      result.business,
-      "bg-[#FFF4DD]",
-      "text-[#B87C00]",
-      "bg-[#9EDFE3]/20",
-      "text-[#13858B]",
-    ],
-    [
-      Zap,
-      "Énergie",
-      result.energy,
-      "bg-[#E8F9FA]",
-      "text-[#13858B]",
-      "bg-[#D5A021]/10",
-      "text-[#D5A021]",
-    ],
-    [
       Target,
-      "Prochain pas",
-      result.next,
+      "Ton défi principal",
+      result.challenge,
+      "bg-[#E8F9FA]",
+      "text-[#13858B]",
+      "bg-[#D5A021]/10",
+      "text-[#D5A021]",
+    ],
+    [
+      Sparkles,
+      "Ce que ton profil révèle",
+      result.text,
       "bg-[#FFF4DD]",
       "text-[#B87C00]",
       "bg-[#9EDFE3]/20",
@@ -616,7 +626,7 @@ function Result({ resultKey, onRestart }: { resultKey: string; onRestart: () => 
             </div>
 
             <div>
-              <p className="text-sm text-[#3F4B5E]">Ton état dominant actuel</p>
+              <p className="text-sm text-[#3F4B5E]">Ton archétype dominant actuel</p>
               <h1 className="mt-2 font-serif text-3xl text-[#B87C00]">{result.label}</h1>
               <p className="mt-3 leading-6 text-[#3F4B5E]">{result.text}</p>
             </div>
@@ -625,7 +635,7 @@ function Result({ resultKey, onRestart }: { resultKey: string; onRestart: () => 
 
         <h2 className="mt-8 text-xl font-semibold">Ton aperçu personnalisé</h2>
 
-        <div className="mt-4 grid grid-cols-2 gap-4">
+        <div className="mt-4 grid grid-cols-1 gap-4">
           {cards.map(([Icon, title, text, bg, color, iconBg, iconColor]: any) => (
             <div
               key={title}
@@ -645,7 +655,7 @@ function Result({ resultKey, onRestart }: { resultKey: string; onRestart: () => 
         <div className="mt-8 rounded-[2rem] bg-gradient-to-br from-[#D5A021] to-[#B87C00] p-7 text-center text-white shadow-xl shadow-[#D5A021]/20">
           <h2 className="font-serif text-2xl">Prête à aller plus loin ?</h2>
           <p className="mt-3 leading-6 text-white/90">
-            Le quiz révèle ton état actuel. Ton Human Design révèle ton mode d’emploi naturel.
+            Le quiz révèle ton archétype actuel. Ton Human Design peut t'aider à comprendre ton mode d'emploi naturel.
           </p>
           <a
             href="https://www.artehappy.com"
@@ -664,11 +674,11 @@ function Result({ resultKey, onRestart }: { resultKey: string; onRestart: () => 
 
 export default function App() {
   const [screen, setScreen] = useState("landing");
-  const [answers, setAnswers] = useState<string[]>([]);
+  const [answers, setAnswers] = useState<ArchetypeKey[]>([]);
   const [lead, setLead] = useState<{ firstName: string; email: string } | null>(null);
 
-  const resultKey = useMemo(() => {
-    return answers.length ? scoreAnswers(answers) : "fire";
+  const resultKey = useMemo<ArchetypeKey>(() => {
+    return answers.length ? scoreAnswers(answers) : "guardian";
   }, [answers]);
 
   function handleLeadSubmit(leadData: { firstName: string; email: string }) {
