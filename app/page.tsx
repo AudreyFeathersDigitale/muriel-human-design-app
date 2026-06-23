@@ -709,9 +709,7 @@ export default function App() {
     try {
       await fetch(process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL!, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        mode: "no-cors",
         body: JSON.stringify({
           firstName: leadData.firstName,
           email: leadData.email,
