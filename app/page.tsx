@@ -681,7 +681,53 @@ export default function App() {
     return answers.length ? scoreAnswers(answers) : "guardian";
   }, [answers]);
 
-  function handleLeadSubmit(leadData: { firstName: string; email: string }) {
+  function getScores() {
+    const scores = {
+      guardian: 0,
+      seeker: 0,
+      survivor: 0,
+      alchemist: 0,
+    };
+
+    answers.forEach((answer) => {
+      scores[answer]++;
+    });
+
+    return scores;
+  }
+
+  async function handleLeadSubmit(leadData: { firstName: string; email: string }) {
+    const scores = getScores();
+
+    const pdfMap = {
+      guardian: "gardien-controle.pdf",
+      seeker: "chercheur-reponses.pdf",
+      survivor: "survivant-emotionnel.pdf",
+      alchemist: "alchimiste-aligne.pdf",
+    };
+
+    try {
+      await fetch(process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL!, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstName: leadData.firstName,
+          email: leadData.email,
+          profile: results[resultKey].label,
+          guardian: scores.guardian,
+          seeker: scores.seeker,
+          survivor: scores.survivor,
+          alchemist: scores.alchemist,
+          answers,
+          pdf: pdfMap[resultKey],
+        }),
+      });
+    } catch (error) {
+      console.error("Erreur Google Sheets :", error);
+    }
+
     setLead(leadData);
     setScreen("result");
   }
