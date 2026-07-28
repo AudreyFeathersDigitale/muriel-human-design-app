@@ -475,13 +475,13 @@ function ProfileReady({ onNext }: { onNext: () => void }) {
           Je prépare maintenant ton mini-guide personnalisé avec ton analyse complète.
         </p>
 
-        <p className="mt-6 text-sm font-medium text-[#B87C00]">
+        <p className="mt-6 text-sm font-medium text-[#C8A96A]">
           Cela ne prend que quelques secondes…
         </p>
 
         <button
           onClick={onNext}
-          className="mt-12 flex h-14 w-full items-center justify-center gap-3 rounded-full bg-gradient-to-r from-[#D5A021] to-[#E8B940] px-6 text-lg font-semibold text-white shadow-xl shadow-[#D5A021]/25 transition hover:scale-[1.01]"
+          className="mt-12 flex h-14 w-full items-center justify-center gap-3 rounded-full bg-gradient-to-r from-[#C8A96A] to-[#C8A96A] px-6 text-lg font-semibold text-white shadow-xl shadow-[#D5A021]/25 transition hover:scale-[1.01]"
         >
           Continuer
           <ArrowRight className="h-5 w-5" />
@@ -514,7 +514,7 @@ function LeadCapture({
     <PhoneFrame>
       <form onSubmit={handleSubmit} className="flex min-h-[860px] flex-col p-7">
         <div className="mt-10 text-center">
-          <div className="mx-auto grid h-20 w-20 place-items-center rounded-full bg-[#FFF4DD] text-[#D5A021]">
+          <div className="mx-auto grid h-20 w-20 place-items-center rounded-full bg-[#FFF4DD] text-[#C8A96A]">
             <Sparkles className="h-9 w-9" />
           </div>
 
@@ -627,7 +627,7 @@ function Result({ resultKey, onRestart }: { resultKey: ArchetypeKey; onRestart: 
 
             <div>
               <p className="text-sm text-[#3F4B5E]">Ton archétype dominant actuel</p>
-              <h1 className="mt-2 font-serif text-3xl text-[#B87C00]">{result.label}</h1>
+              <h1 className="mt-2 font-serif text-3xl text-[#C8A96A]">{result.label}</h1>
               <p className="mt-3 leading-6 text-[#3F4B5E]">{result.text}</p>
             </div>
           </div>
@@ -652,7 +652,7 @@ function Result({ resultKey, onRestart }: { resultKey: ArchetypeKey; onRestart: 
           ))}
         </div>
 
-        <div className="mt-8 rounded-[2rem] bg-gradient-to-br from-[#D5A021] to-[#B87C00] p-7 text-center text-white shadow-xl shadow-[#D5A021]/20">
+        <div className="mt-8 rounded-[2rem] bg-gradient-to-br from-[#C8A96A] to-[#C8A96A] p-7 text-center text-white shadow-xl shadow-[#D5A021]/20">
           <h2 className="font-serif text-2xl">Prête à aller plus loin ?</h2>
           <p className="mt-3 leading-6 text-white/90">
             Le quiz révèle ton archétype actuel. Ton Human Design peut t'aider à comprendre ton mode d'emploi naturel.
