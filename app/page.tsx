@@ -285,9 +285,9 @@ function Landing({ onStart }: { onStart: () => void }) {
             <div className="font-serif text-5xl text-[#D5A021]">“</div>
             <div>
               <p className="leading-6">
-                Cette expérience m'a permis de comprendre beaucoup de choses sur moi. Un vrai déclic !
+                Transforme tes pépins en pépites.
               </p>
-              <p className="mt-3 text-sm font-medium">— Claire, entrepreneure</p>
+              <p className="mt-3 text-sm font-medium">— Muriel Gravouil</p>
             </div>
           </div>
         </div>
