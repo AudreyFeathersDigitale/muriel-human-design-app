@@ -271,7 +271,7 @@ function Landing({ onStart }: { onStart: () => void }) {
 
         <button
           onClick={onStart}
-          className="mt-10 flex h-14 w-full items-center justify-center gap-4 rounded-full bg-gradient-to-r from-[#2CBCC3] to-[#24AAB1] px-6 text-lg font-semibold text-white shadow-xl shadow-[#2CBCC3]/25 transition hover:scale-[1.01]"
+          className="mt-10 flex h-14 w-full items-center justify-center gap-4 rounded-full bg-gradient-to-r from-[#C8A96A] to-[#C8A96A] px-6 text-lg font-semibold text-white shadow-xl shadow-[#2CBCC3]/25 transition hover:scale-[1.01]"
         >
           Commencer mon analyse <ArrowRight className="h-5 w-5" />
         </button>
