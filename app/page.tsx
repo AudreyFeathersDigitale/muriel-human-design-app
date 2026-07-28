@@ -239,9 +239,9 @@ function Landing({ onStart }: { onStart: () => void }) {
         <div className="mt-12 grid grid-cols-[1fr_auto] items-center gap-4">
           <div>
             <h1 className="text-[40px] font-semibold leading-[1.05] tracking-tight text-[#0E5A66]">
-              Et si tu n&apos;étais pas bloqué(e)...
+              Tu as l’impression de tourner en rond ?
               <span className="mt-2 block text-[#C8A96A]">
-                mais simplement éloigné(e) de ta Zone de Génie ?
+                Découvre ce qui freine ton élan.
               </span>
             </h1>
             <div className="mt-5 h-1.5 w-28 rounded-full bg-[#2CBCC3]" />
