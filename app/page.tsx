@@ -209,7 +209,7 @@ function Orb({ size = "h-36 w-36" }) {
 
 function Shell({ children }: { children: React.ReactNode }) {
   return (
-    <main className="min-h-screen overflow-hidden bg-[#F8F4ED] text-[#0E5A66]" style={{ fontFamily: "\"Poppins\", sans-serif" }}>
+    <main className="min-h-screen overflow-hidden bg-[#F8F4ED] text-[#0E5A66]" style={{ fontFamily: "Poppins, sans-serif" }}>
       <div className="pointer-events-none fixed -left-32 -top-32 h-96 w-96 rounded-full bg-[#2CBCC3]/18 blur-3xl" />
       <div className="pointer-events-none fixed -right-20 top-1/3 h-80 w-80 rounded-full bg-[#C8A96A]/14 blur-3xl" />
       <div className="pointer-events-none fixed bottom-0 left-1/3 h-72 w-72 rounded-full bg-white blur-3xl" />
@@ -238,7 +238,7 @@ function Landing({ onStart }: { onStart: () => void }) {
 
         <div className="mt-12 grid grid-cols-[1fr_auto] items-center gap-4">
           <div>
-            <h1 className="[font-family:\"League_Spartan\",\"Poppins\",sans-serif] font-semibold text-[44px] leading-[1.05] tracking-tight">
+            <h1 className="font-semibold text-[44px] leading-[1.05] tracking-tight">
               Découvre ton profil intérieur{" "}
               <span className="text-[#C8A96A]">et ta Zone de Génie</span>
             </h1>
@@ -282,7 +282,7 @@ function Landing({ onStart }: { onStart: () => void }) {
 
         <div className="mt-auto rounded-3xl border border-[#D9E5E6] bg-white/60 p-5 shadow-sm">
           <div className="flex gap-4">
-            <div className="[font-family:\"League_Spartan\",\"Poppins\",sans-serif] font-semibold text-5xl text-[#C8A96A]">“</div>
+            <div className="font-semibold text-5xl text-[#C8A96A]">“</div>
             <div>
               <p className="leading-6">
                 Transforme tes pépins en pépites.
@@ -322,7 +322,7 @@ function ChatQuiz({
           <header className="flex items-center justify-between">
             <button className="grid h-11 w-11 place-items-center rounded-full bg-white shadow-sm">‹</button>
             <div className="text-center">
-              <div className="[font-family:\"League_Spartan\",\"Poppins\",sans-serif] font-semibold text-2xl">Ton guide IA</div>
+              <div className="font-semibold text-2xl">Ton guide IA</div>
               <div className="text-sm font-medium text-[#2CBCC3]">Clarté & alignement</div>
             </div>
             <button className="grid h-11 w-11 place-items-center rounded-full bg-white shadow-sm">
@@ -358,7 +358,7 @@ function ChatQuiz({
           </div>
 
           <div className="mt-auto rounded-[2rem] border border-[#D9E5E6] bg-white/55 p-5 text-center shadow-sm">
-            <p className="[font-family:\"League_Spartan\",\"Poppins\",sans-serif] font-semibold text-2xl text-[#C8A96A]">8 questions</p>
+            <p className="font-semibold text-2xl text-[#C8A96A]">8 questions</p>
             <p className="mt-2 text-sm leading-6 text-[#0E5A66]">
               Réponds spontanément. Il n'y a pas de bonne ou de mauvaise réponse.
             </p>
@@ -378,7 +378,7 @@ function ChatQuiz({
         <div className="flex min-h-[860px] items-center justify-center p-6">
           <div className="text-center">
             <Orb size="mx-auto h-28 w-28" />
-            <p className="mt-6 [font-family:\"League_Spartan\",\"Poppins\",sans-serif] font-semibold text-2xl">Analyse en cours…</p>
+            <p className="mt-6 font-semibold text-2xl">Analyse en cours…</p>
             <p className="mt-2 text-sm text-[#0E5A66]">
               Ton guide prépare ton résultat personnalisé.
             </p>
@@ -402,7 +402,7 @@ function ChatQuiz({
           </button>
 
           <div className="text-center">
-            <div className="[font-family:\"League_Spartan\",\"Poppins\",sans-serif] font-semibold text-2xl">Ton analyse</div>
+            <div className="font-semibold text-2xl">Ton analyse</div>
             <div className="text-sm font-medium text-[#C8A96A]">
               Question {current.id}/{questions.length}
             </div>
@@ -434,7 +434,7 @@ function ChatQuiz({
             </div>
 
             <div className="mt-6 flex items-start justify-between gap-4">
-              <h2 className="[font-family:\"League_Spartan\",\"Poppins\",sans-serif] font-semibold text-[28px] leading-tight">{current.question}</h2>
+              <h2 className="font-semibold text-[28px] leading-tight">{current.question}</h2>
               <CurrentIcon className="h-10 w-10 shrink-0 text-[#2CBCC3]" />
             </div>
 
@@ -467,7 +467,7 @@ function ProfileReady({ onNext }: { onNext: () => void }) {
       <div className="flex min-h-[860px] flex-col items-center justify-center p-7 text-center">
         <Orb size="h-28 w-28" />
 
-        <h1 className="mt-10 [font-family:\"League_Spartan\",\"Poppins\",sans-serif] font-semibold text-4xl leading-tight text-[#0E5A66]">
+        <h1 className="mt-10 font-semibold text-4xl leading-tight text-[#0E5A66]">
           ✨ Ton profil est prêt
         </h1>
 
@@ -518,7 +518,7 @@ function LeadCapture({
             <Sparkles className="h-9 w-9" />
           </div>
 
-          <h1 className="mt-8 [font-family:\"League_Spartan\",\"Poppins\",sans-serif] font-semibold text-4xl leading-tight text-[#0E5A66]">
+          <h1 className="mt-8 font-semibold text-4xl leading-tight text-[#0E5A66]">
             Reçois ton mini-guide personnalisé
           </h1>
 
@@ -608,7 +608,7 @@ function Result({ resultKey, onRestart }: { resultKey: ArchetypeKey; onRestart: 
             ‹
           </button>
 
-          <div className="[font-family:\"League_Spartan\",\"Poppins\",sans-serif] font-semibold text-2xl">Ton analyse</div>
+          <div className="font-semibold text-2xl">Ton analyse</div>
 
           <a
             href={pdfLinks[resultKey]}
@@ -627,7 +627,7 @@ function Result({ resultKey, onRestart }: { resultKey: ArchetypeKey; onRestart: 
 
             <div>
               <p className="text-sm text-[#0E5A66]">Ton archétype dominant actuel</p>
-              <h1 className="mt-2 [font-family:\"League_Spartan\",\"Poppins\",sans-serif] font-semibold text-3xl text-[#C8A96A]">{result.label}</h1>
+              <h1 className="mt-2 font-semibold text-3xl text-[#C8A96A]">{result.label}</h1>
               <p className="mt-3 leading-6 text-[#0E5A66]">{result.text}</p>
             </div>
           </div>
@@ -645,7 +645,7 @@ function Result({ resultKey, onRestart }: { resultKey: ArchetypeKey; onRestart: 
                 <Icon className={`h-6 w-6 ${iconColor}`} />
               </div>
 
-              <div className={`mt-4 [font-family:\"League_Spartan\",\"Poppins\",sans-serif] font-semibold text-xl ${color}`}>{title}</div>
+              <div className={`mt-4 font-semibold text-xl ${color}`}>{title}</div>
 
               <p className="mt-3 text-sm leading-6 text-[#0E5A66]">{text}</p>
             </div>
@@ -653,7 +653,7 @@ function Result({ resultKey, onRestart }: { resultKey: ArchetypeKey; onRestart: 
         </div>
 
         <div className="mt-8 rounded-[2rem] bg-gradient-to-br from-[#C8A96A] to-[#B6914D] p-7 text-center text-white shadow-xl shadow-[#C8A96A]/20">
-          <h2 className="[font-family:\"League_Spartan\",\"Poppins\",sans-serif] font-semibold text-2xl">Prête à aller plus loin ?</h2>
+          <h2 className="font-semibold text-2xl">Prête à aller plus loin ?</h2>
           <p className="mt-3 leading-6 text-white/90">
             Le quiz révèle ton archétype actuel. Ton Human Design peut t'aider à comprendre ton mode d'emploi naturel.
           </p>
