@@ -202,7 +202,7 @@ function Orb({ size = "h-36 w-36" }) {
       className={`${size} relative rounded-full bg-[radial-gradient(circle_at_35%_30%,#ffffff_0%,#BFF3F5_22%,#9EDFE3_48%,#ffffff00_72%)] shadow-[0_0_70px_rgba(158,223,227,.65)]`}
     >
       <div className="absolute inset-3 rounded-full border border-white/70" />
-      <Sparkles className="absolute left-1/2 top-1/2 h-12 w-12 -translate-x-1/2 -translate-y-1/2 text-[#D5A021]" />
+      <Sparkles className="absolute left-1/2 top-1/2 h-12 w-12 -translate-x-1/2 -translate-y-1/2 text-[#C8A96A]" />
     </motion.div>
   );
 }
@@ -233,7 +233,7 @@ function Landing({ onStart }: { onStart: () => void }) {
     <PhoneFrame>
       <div className="flex min-h-[860px] flex-col p-7">
         <div className="font-serif text-2xl italic tracking-tight">
-          art & happy <span className="text-[#D5A021]">⌣</span>
+          art & happy <span className="text-[#C8A96A]">⌣</span>
         </div>
 
         <div className="mt-12 grid grid-cols-[1fr_auto] items-center gap-4">
@@ -282,7 +282,7 @@ function Landing({ onStart }: { onStart: () => void }) {
 
         <div className="mt-auto rounded-3xl border border-[#E5D9C5] bg-white/60 p-5 shadow-sm">
           <div className="flex gap-4">
-            <div className="font-serif text-5xl text-[#D5A021]">“</div>
+            <div className="font-serif text-5xl text-[#C8A96A]">“</div>
             <div>
               <p className="leading-6">
                 Transforme tes pépins en pépites.
