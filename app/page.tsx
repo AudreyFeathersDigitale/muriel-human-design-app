@@ -258,8 +258,8 @@ function Landing({ onStart }: { onStart: () => void }) {
             [Leaf, "Alignement et clarté", "Avance avec plus de confiance, d'énergie et de justesse."],
           ].map(([Icon, title, text]: any) => (
             <div key={title} className="flex gap-5">
-              <div className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-[#9EDFE3]/70 shadow-lg shadow-[#9EDFE3]/30">
-                <Icon className="h-7 w-7 text-[#13858B]" />
+              <div className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-[#2CBCC3]/70 shadow-lg shadow-[#9EDFE3]/30">
+                <Icon className="h-7 w-7 text-[#2CBCC3]" />
               </div>
               <div>
                 <div className="text-lg font-semibold">{title}</div>
