@@ -240,7 +240,7 @@ function Landing({ onStart }: { onStart: () => void }) {
           <div>
             <h1 className="font-serif text-[44px] leading-[1.05] tracking-tight">
               Découvre ton profil intérieur{" "}
-              <span className="text-[#B87C00]">et ta Zone de Génie</span>
+              <span className="text-[#C8A96A]">et ta Zone de Génie</span>
             </h1>
             <div className="mt-5 h-1.5 w-28 rounded-full bg-[#9EDFE3]" />
           </div>
@@ -271,7 +271,7 @@ function Landing({ onStart }: { onStart: () => void }) {
 
         <button
           onClick={onStart}
-          className="mt-10 flex h-14 w-full items-center justify-center gap-4 rounded-full bg-gradient-to-r from-[#D5A021] to-[#E8B940] px-6 text-lg font-semibold text-white shadow-xl shadow-[#D5A021]/25 transition hover:scale-[1.01]"
+          className="mt-10 flex h-14 w-full items-center justify-center gap-4 rounded-full bg-gradient-to-r from-[#C8A96A] to-[#C8A96A] px-6 text-lg font-semibold text-white shadow-xl shadow-[#D5A021]/25 transition hover:scale-[1.01]"
         >
           Commencer mon analyse <ArrowRight className="h-5 w-5" />
         </button>
